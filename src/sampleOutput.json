@@ -1,9 +1,7 @@
-import React, { Component } from "react";
-import NewsItem from "./NewsItem";
-//import PropTypes from 'prop-types'
-
-export class News extends Component {
-  articles= [
+{
+  "status": "ok",
+  "totalResults": 10,
+  "articles": [
     {
       "source": { "id": "bbc-news", "name": "BBC News" },
       "author": "BBC News",
@@ -105,35 +103,4 @@ export class News extends Component {
       "content": "By Sophie Williams and Olga PonaBBC News, Lviv\r\nImage source, Maxym Strelnik\r\nImage caption, Many people in Izyum retreated to basements, to avoid bombardment and soldiers\r\n\"We thought those were our… [+6383 chars]"
     }
   ]
-  constructor(){
-    super();
-    console.log("Hello i am a constructor from news component");
-    this.state={
-      articles:this.articles,
-      loading:false,
-    }
-  }
-  render() {
-    return (
-      <div className="container my-3">
-        <h1>Top Headlines</h1>
-        <div className="row">
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" imageUrl="https://ichef.bbci.co.uk/news/1024/branded_news/10A57/production/_124638186_03e65d96-3d2b-4150-8883-f0da2007ba96.jpg" imageUrl="todo"/>
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
-        </div>
-      </div>
-    );
-  }
 }
-
-export default News;
