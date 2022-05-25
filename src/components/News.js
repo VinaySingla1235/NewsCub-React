@@ -117,19 +117,16 @@ export class News extends Component {
     return (
       <div className="container my-3">
         <h1>Top Headlines</h1>
+        
         <div className="row">
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" imageUrl="https://ichef.bbci.co.uk/news/1024/branded_news/10A57/production/_124638186_03e65d96-3d2b-4150-8883-f0da2007ba96.jpg" imageUrl="todo"/>
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
-          <div className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
-            <NewsItem title="mytitle" description="mydescription" />
-          </div>
+        {this.state.articles.map((element)=>{
+          return <div  key ={element.url} className="col-md-6 col-lg-4 col-xxl-3 col-sm-6 col-xs-12 my-3">
+          <NewsItem title={element.title.length>63?element.title.slice(0,63)+"...":element.title} description={element.description.length>96?element.description.slice(0,96)+"...":element.description} imageUrl={element.urlToImage} newsUrl={element.url}/>
+        </div>
+        })}
+          
+         
+          
         </div>
       </div>
     );
