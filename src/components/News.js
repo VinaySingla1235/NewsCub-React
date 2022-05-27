@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import Spinner from "./Spinnner.js"
-//import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 export class News extends Component {
+  static defaultProps={
+    country:'in',
+    pageSize:8,
+    category:'general'
+  }
+  static propTypes={
+    country:PropTypes.string,
+    pagesize:PropTypes.number,
+  }
   constructor() {
     super();
     //console.log("Hello i am a constructor from news component");
@@ -26,7 +35,7 @@ export class News extends Component {
   handleNextClick=async ()=>{
     console.log("Next");
     let url =
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=e515e156be254089be425102eb891301&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -39,7 +48,7 @@ export class News extends Component {
   handlePrevClick=async ()=>{
     console.log("Previous");
     let url =
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=e515e156be254089be425102eb891301&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -52,7 +61,7 @@ export class News extends Component {
   async componentDidMount() {
     //console.log("cdm");
     let url =
-      `https://newsapi.org/v2/top-headlines?country=in&apiKey=e515e156be254089be425102eb891301&pageSize=${this.props.pageSize}`;
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -73,8 +82,8 @@ export class News extends Component {
                 align="center"
               >
                 <NewsItem
-                  title={this.optimizeText(element.title, 63)}
-                  description={this.optimizeText(element.description, 96)}
+                  title={this.optimizeText(element.title, 69)}
+                  description={this.optimizeText(element.description, 105)}
                   imageUrl={
                     element.urlToImage === null
                       ? "/Images/newsMonkey.jpg"
