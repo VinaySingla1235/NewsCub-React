@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 export class News extends Component {
   static defaultProps={
     country:'in',
-    pageSize:8,
+    pageSize:20,
     category:'general'
   }
   static propTypes={
@@ -45,6 +45,9 @@ export class News extends Component {
       page:this.state.page+1,
     })
   }
+  capitalizeFirstLetter=(string)=> {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
   handlePrevClick=async ()=>{
     console.log(`Previous ${this.props.category}`);
     let url =
@@ -72,7 +75,7 @@ export class News extends Component {
     console.log("re rendered",this.props.category);
     return (
       <div className="container my-3">
-        {this.props.category==="general"?<h1>Top Headlines</h1>:<h1>{this.props.category.capi} news</h1>}
+        {this.props.category==="general"?<h1>Top Headlines</h1>:<h1>{this.capitalizeFirstLetter(this.props.category)} news</h1>}
         {this.state.loading && <Spinner/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
@@ -83,8 +86,8 @@ export class News extends Component {
                 align="center"
               >
                 <NewsItem
-                  title={this.optimizeText(element.title, 69)}
-                  description={this.optimizeText(element.description, 105)}
+                  title={this.optimizeText(element.title, 60)}
+                  description={this.optimizeText(element.description, 100)}
                   imageUrl={
                     element.urlToImage === null
                       ? "/Images/newsMonkey.jpg"
