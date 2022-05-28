@@ -33,7 +33,7 @@ export class News extends Component {
     }
   };
   handleNextClick=async ()=>{
-    console.log("Next");
+    console.log(`Next ${this.props.category}`);
     let url =
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
@@ -46,7 +46,7 @@ export class News extends Component {
     })
   }
   handlePrevClick=async ()=>{
-    console.log("Previous");
+    console.log(`Previous ${this.props.category}`);
     let url =
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
@@ -59,7 +59,7 @@ export class News extends Component {
     })
   }
   async componentDidMount() {
-    //console.log("cdm");
+    console.log("cdm");
     let url =
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
@@ -69,9 +69,10 @@ export class News extends Component {
     this.setState({ articles: parsedData.articles,totalArticles:parsedData.totalResults,loading:false });
   }
   render() {
+    console.log("re rendered",this.props.category);
     return (
       <div className="container my-3">
-        <h1>Top Headlines</h1>
+        {this.props.category==="general"?<h1>Top Headlines</h1>:<h1>{this.props.category.capi} news</h1>}
         {this.state.loading && <Spinner/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
