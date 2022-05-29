@@ -75,7 +75,7 @@ export class News extends Component {
     console.log("re rendered",this.props.category);
     return (
       <div className="container my-3">
-        {this.props.category==="general"?<h1>Top Headlines</h1>:<h1>{this.capitalizeFirstLetter(this.props.category)} news</h1>}
+        <h1>{this.props.countryName} {this.props.category==="general"?'Top Headlines':(this.capitalizeFirstLetter(this.props.category))+' news'}</h1>
         {this.state.loading && <Spinner/>}
         <div className="row">
           {!this.state.loading && this.state.articles.map((element) => {
