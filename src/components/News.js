@@ -91,7 +91,7 @@ export class News extends Component {
                   description={this.optimizeText(element.description, 100)}
                   imageUrl={
                     element.urlToImage === null
-                      ? "/Images/newsMonkey.jpg"
+                      ? "logo.png"
                       : element.urlToImage
                   }
                   newsUrl={element.url}

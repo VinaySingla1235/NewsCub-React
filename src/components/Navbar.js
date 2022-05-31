@@ -1,14 +1,17 @@
 import React, { Component } from "react";
-import "./Navbar.css"
+import "./Navbar.css";
 //import PropTypes from 'prop-types'
 export class Navbar extends Component {
   render() {
     return (
-      <nav className={`navbar navbar-expand-lg bg-${this.props.mode} navbar-${this.props.mode}`}>
+      <nav
+        className={`navbar navbar-expand-lg bg-${this.props.mode} navbar-${this.props.mode}`}
+      >
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            NewsMonkey
-          </a>
+          <div class="navbar-brand">
+         NewsCub
+          </div>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -30,7 +33,7 @@ export class Navbar extends Component {
                   this.props.changeCategory("general");
                 }}
               >
-                Home
+               Home
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -41,11 +44,16 @@ export class Navbar extends Component {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Categories
+                Categories
                 </a>
-                <ul className={`dropdown-menu bg-${this.props.mode}`} aria-labelledby="navbarDropdown">
+                <ul
+                  className={`dropdown-menu bg-${this.props.mode}`}
+                  aria-labelledby="navbarDropdown"
+                >
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("business");
                     }}
@@ -53,7 +61,9 @@ export class Navbar extends Component {
                     Business
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("entertainment");
                     }}
@@ -61,7 +71,9 @@ export class Navbar extends Component {
                     Entertainment
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("health");
                     }}
@@ -69,7 +81,9 @@ export class Navbar extends Component {
                     Health
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("science");
                     }}
@@ -77,7 +91,9 @@ export class Navbar extends Component {
                     Science
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("sports");
                     }}
@@ -85,7 +101,9 @@ export class Navbar extends Component {
                     Sports
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCategory("technology");
                     }}
@@ -105,11 +123,15 @@ export class Navbar extends Component {
                 >
                   Country
                 </a>
-                <ul className={`dropdown-menu bg-${this.props.mode}`} aria-labelledby="navbarDropdown">
+                <ul
+                  className={`dropdown-menu bg-${this.props.mode}`}
+                  aria-labelledby="navbarDropdown"
+                >
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`} style={{
-                      
-                    }}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
+                    style={{}}
                     onClick={() => {
                       this.props.changeCountry("us", "USA");
                     }}
@@ -117,7 +139,9 @@ export class Navbar extends Component {
                     USA
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("cn", "China");
                     }}
@@ -125,7 +149,9 @@ export class Navbar extends Component {
                     China
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("jp", "Japan");
                     }}
@@ -133,7 +159,9 @@ export class Navbar extends Component {
                     Japan
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("de", "Germany");
                     }}
@@ -141,7 +169,9 @@ export class Navbar extends Component {
                     Germany
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("in", "India");
                     }}
@@ -149,7 +179,9 @@ export class Navbar extends Component {
                     India
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("gb", "UK");
                     }}
@@ -157,7 +189,9 @@ export class Navbar extends Component {
                     UK
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("fr", "France");
                     }}
@@ -165,7 +199,9 @@ export class Navbar extends Component {
                     France
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("br", "Brazil");
                     }}
@@ -173,7 +209,9 @@ export class Navbar extends Component {
                     Brazil
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("it", "Italy");
                     }}
@@ -181,7 +219,9 @@ export class Navbar extends Component {
                     Italy
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("ca", "Canada");
                     }}
@@ -189,7 +229,9 @@ export class Navbar extends Component {
                     Canada
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("ru", "Russia");
                     }}
@@ -197,7 +239,9 @@ export class Navbar extends Component {
                     Russia
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("kr", "South Korea");
                     }}
@@ -205,7 +249,9 @@ export class Navbar extends Component {
                     South Korea
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("au", "Australia");
                     }}
@@ -213,7 +259,9 @@ export class Navbar extends Component {
                     Australia
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("mx", "Mexico");
                     }}
@@ -221,7 +269,9 @@ export class Navbar extends Component {
                     Mexico
                   </li>
                   <li
-                    className={`dropdown-item text-${this.props.mode==='light'?'dark':'light'}`}
+                    className={`dropdown-item text-${
+                      this.props.mode === "light" ? "dark" : "light"
+                    }`}
                     onClick={() => {
                       this.props.changeCountry("id", "Indonesia");
                     }}
@@ -231,21 +281,29 @@ export class Navbar extends Component {
                 </ul>
               </li>
             </ul>
-            <div className="form-check form-switch" style={{cursor:'pointer'}} >
-            <input
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-              onClick={this.props.changeMode}
-              style={{cursor:'pointer'}}
-            />
-            <label className={`form-check-label text-${this.props.mode==='light'?'dark':'light'}`} style={{cursor:'pointer'}} for="flexSwitchCheckDefault">
-              Enable {this.props.mode==='light'?'dark':'light'} Mode
-            </label>
+            <div
+              className="form-check form-switch"
+              style={{ cursor: "pointer" }}
+            >
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={this.props.changeMode}
+                style={{ cursor: "pointer" }}
+              />
+              <label
+                className={`form-check-label text-${
+                  this.props.mode === "light" ? "dark" : "light"
+                }`}
+                style={{ cursor: "pointer" }}
+                for="flexSwitchCheckDefault"
+              >
+                Enable {this.props.mode === "light" ? "dark" : "light"} Mode
+              </label>
+            </div>
           </div>
-          </div>
-          
         </div>
       </nav>
     );
