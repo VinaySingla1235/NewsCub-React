@@ -86,6 +86,7 @@ export class News extends Component {
                 align="center"
               >
                 <NewsItem
+                  mode={this.props.mode}
                   title={this.optimizeText(element.title, 60)}
                   description={this.optimizeText(element.description, 100)}
                   imageUrl={

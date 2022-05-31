@@ -3,11 +3,11 @@ import React, { Component } from "react";
 
 export class NewsItem extends Component {
   render() {
-    let {title,description,imageUrl,newsUrl} = this.props;
+    let {title,description,imageUrl,newsUrl,mode} = this.props;
     return (
       
       <div>
-        <div className="card" style={{height:"25.9rem"}}>
+        <div className={`card bg-${mode}`} style={{height:"25.9rem"}}>
           <img src={imageUrl} className="card-img-top" style={{maxHeight:"10.5rem"}} alt="..." />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>

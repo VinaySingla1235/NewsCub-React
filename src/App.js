@@ -20,7 +20,8 @@ export default class App extends Component {
       category:this.fetchFromStorage('newsAppCategory','general'),
       key:this.fetchFromStorage('newsAppKey','India-general'),
       country:this.fetchFromStorage('newsAppCountry','in'),
-      countryName:this.fetchFromStorage('newsAppCountryName','India')
+      countryName:this.fetchFromStorage('newsAppCountryName','India'),
+      mode:this.fetchFromStorage('newsAppMode','light')
     }
     
   }
@@ -45,12 +46,21 @@ export default class App extends Component {
     localStorage.setItem('newsAppCountryName',countryNameparam);
     localStorage.setItem('newsAppKey',newKey);
   }
+  changeMode=()=>{
+    let modeRev=this.state.mode==='light'?'dark':'light';
+    this.setState({
+      mode:modeRev,
+    })
+    localStorage.setItem('newsAppMode',modeRev);
+    // document.body.style.backgroundColor = modeRev==='light'?'white':'black';
+    // document.body.style.color = modeRev==='dark'?'white':'black';
+  }
   render() {
     return (
-      <div>
+      <div style={{backgroundColor:this.state.mode==='dark'?'black':'white',  color:this.state.mode==='dark'?'white':'black'}}>
        
-       <Navbar category={this.state.category} changeCategory={this.changeCategory} changeCountry={this.changeCountry}/>
-       <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName}/>
+       <Navbar category={this.state.category} changeCategory={this.changeCategory} changeCountry={this.changeCountry} mode={this.state.mode} changeMode={this.changeMode}/>
+       <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode}/>
       </div>
     )
   }
