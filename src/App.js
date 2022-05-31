@@ -55,9 +55,12 @@ export default class App extends Component {
     // document.body.style.backgroundColor = modeRev==='light'?'white':'black';
     // document.body.style.color = modeRev==='dark'?'white':'black';
   }
+  
   render() {
+    document.body.style.backgroundColor = this.state.mode==='light'?'white':'black';
+    document.body.style.color = this.state.mode==='dark'?'white':'black';
     return (
-      <div style={{backgroundColor:this.state.mode==='dark'?'black':'white',  color:this.state.mode==='dark'?'white':'black'}}>
+      <div>
        
        <Navbar category={this.state.category} changeCategory={this.changeCategory} changeCountry={this.changeCountry} mode={this.state.mode} changeMode={this.changeMode}/>
        <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode}/>
