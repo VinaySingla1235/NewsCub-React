@@ -32,47 +32,44 @@ export class News extends Component {
       return text;
     }
   };
-  handleNextClick=async ()=>{
-    console.log(`Next ${this.props.category}`);
+  async updateNews(page){
+    // console.log(this.state.page);
     let url =
-      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
     let parsedData = await data.json();
     //console.log(parsedData);
-    this.setState({ articles: parsedData.articles,loading:false });
+    this.setState({ articles: parsedData.articles,loading:false,totalArticles:parsedData.totalResults });
+    // console.log(parsedData.totalResults,this.state.page);
+    // console.log(url);
+  }
+  handleNextClick=async ()=>{
+    let page=this.state.page+1;
     this.setState({
       page:this.state.page+1,
     })
+    //console.log(this.state.page)
+    this.updateNews(page);
   }
   capitalizeFirstLetter=(string)=> {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
   handlePrevClick=async ()=>{
-    console.log(`Previous ${this.props.category}`);
-    let url =
-      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
-    this.setState({loading:true});
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    //console.log(parsedData);
-    this.setState({ articles: parsedData.articles,loading:false });
+    let page=this.state.page-1;
     this.setState({
       page:this.state.page-1,
     })
+    //console.log(this.state.page);
+    this.updateNews(page);
+
   }
   async componentDidMount() {
-    console.log("cdm");
-    let url =
-      `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&pageSize=${this.props.pageSize}`;
-    this.setState({loading:true});
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    //console.log(parsedData);
-    this.setState({ articles: parsedData.articles,totalArticles:parsedData.totalResults,loading:false });
+    //console.log("cdm");
+    this.updateNews();
   }
   render() {
-    console.log("re rendered",this.props.category);
+    //console.log("re rendered",this.props.category);
     return (
       <div className="container my-3">
         <h1>{this.props.countryName} {this.props.category==="general"?'Top Headlines':(this.capitalizeFirstLetter(this.props.category))+' news'}</h1>

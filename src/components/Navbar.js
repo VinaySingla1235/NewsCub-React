@@ -8,7 +8,7 @@ export class Navbar extends Component {
         className={`navbar navbar-expand-lg bg-${this.props.mode} navbar-${this.props.mode}`}
       >
         <div className="container-fluid">
-          <div class="navbar-brand">
+          <div className="navbar-brand">
          NewsCub
           </div>
 
@@ -298,7 +298,7 @@ export class Navbar extends Component {
                   this.props.mode === "light" ? "dark" : "light"
                 }`}
                 style={{ cursor: "pointer" }}
-                for="flexSwitchCheckDefault"
+                htmlFor="flexSwitchCheckDefault"
               >
                 Enable {this.props.mode === "light" ? "dark" : "light"} Mode
               </label>
