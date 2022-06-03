@@ -39,15 +39,19 @@ export class News extends Component {
   };
   async updateNews(page){
     // console.log(this.state.page);
+    this.props.setProgress(10);
     let url =
       `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=e515e156be254089be425102eb891301&page=${page}&pageSize=${this.props.pageSize}`;
     this.setState({loading:true});
     let data = await fetch(url);
+    this.props.setProgress(30);
     let parsedData = await data.json();
+    this.props.setProgress(70);
     //console.log(parsedData);
     this.setState({ articles: parsedData.articles,loading:false,totalArticles:parsedData.totalResults });
     // console.log(parsedData.totalResults,this.state.page);
     // console.log(url);
+    this.props.setProgress(100);
   }
   
   capitalizeFirstLetter=(string)=> {

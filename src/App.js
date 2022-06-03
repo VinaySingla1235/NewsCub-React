@@ -3,7 +3,7 @@ import './App.css';
 import React, { Component } from 'react'
 import Navbar from './components/Navbar';
 import News from './components/News';
-
+import LoadingBar from "react-top-loading-bar";
 export default class App extends Component {
   fetchFromStorage=(parameter,defaultpara)=>{
   if(localStorage.getItem(parameter)==null){
@@ -21,7 +21,8 @@ export default class App extends Component {
       key:this.fetchFromStorage('newsAppKey','India-general'),
       country:this.fetchFromStorage('newsAppCountry','in'),
       countryName:this.fetchFromStorage('newsAppCountryName','India'),
-      mode:this.fetchFromStorage('newsAppMode','light')
+      mode:this.fetchFromStorage('newsAppMode','light'),
+      progress:0
     }
     
   }
@@ -55,6 +56,9 @@ export default class App extends Component {
     // document.body.style.backgroundColor = modeRev==='light'?'white':'black';
     // document.body.style.color = modeRev==='dark'?'white':'black';
   }
+  setProgress=(progress)=>{
+    this.setState({progress:progress})
+  }
   
   render() {
     document.body.style.backgroundColor = this.state.mode==='light'?'white':'black';
@@ -63,7 +67,15 @@ export default class App extends Component {
       <div>
        
        <Navbar category={this.state.category} changeCategory={this.changeCategory} changeCountry={this.changeCountry} mode={this.state.mode} changeMode={this.changeMode}/>
-       <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode}/>
+       <div>
+            <LoadingBar
+              color="#f11946"
+              height={3}
+              progress={this.state.progress}
+              
+            />
+          </div>
+       <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode} setProgress={this.setProgress}/>
       </div>
     )
   }

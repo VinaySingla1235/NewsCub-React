@@ -7,11 +7,23 @@ export class NewsItem extends Component {
       this.props;
     return (
       <div>
-        <div className={`card bg-${mode}`} style={{ height: "28.5rem" }}>
-        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:'85%',zIndex:'1'}}>
+        <div className={`card bg-${mode}`} style={{ height: "29rem" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              position: "absolute",
+              right: "-11px",
+            }}
+          >
+            <span
+              className="badge rounded-pill bg-danger"
+              style={{ left: "85%", zIndex: "1" }}
+            >
               {source}
               <span className="visually-hidden">unread messages</span>
             </span>
+          </div>
           <img
             src={imageUrl}
             className="card-img-top"
@@ -20,7 +32,7 @@ export class NewsItem extends Component {
           />
           <div className="card-body">
             <h5 className="card-title">{title}</h5>
-            
+
             <p className="card-text">{description}</p>
             <p className="card-text">
               <small className="text-muted">
