@@ -14,7 +14,7 @@ export default class App extends Component {
   }
 
   }
-  apiKey=process.env.REACT_APP_NEWS_API;
+  apiKey='e515e156be254089be425102eb891301';
   constructor(){
     super();
     this.state={
