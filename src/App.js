@@ -14,6 +14,7 @@ export default class App extends Component {
   }
 
   }
+  apiKey=process.env.REACT_APP_NEWS_API;
   constructor(){
     super();
     this.state={
@@ -75,7 +76,7 @@ export default class App extends Component {
               
             />
           </div>
-       <News key={this.state.key} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode} setProgress={this.setProgress}/>
+       <News key={this.state.key} apiKey={this.apiKey} category={this.state.category}  country={this.state.country} countryName={this.state.countryName} mode={this.state.mode} setProgress={this.setProgress}/>
       </div>
     )
   }
