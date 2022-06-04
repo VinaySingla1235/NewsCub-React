@@ -3,7 +3,7 @@ import NewsItem from "./NewsItem";
 import Spinner from "./Spinnner.js"
 import PropTypes from 'prop-types'
 import InfiniteScroll from "react-infinite-scroll-component";
-
+import './News.css'
 export class News extends Component {
   static defaultProps={
     country:'in',
@@ -82,7 +82,7 @@ export class News extends Component {
     return (
       <>
         
-        {this.state.loading && <Spinner/>}
+       
         <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}
@@ -90,7 +90,8 @@ export class News extends Component {
           loader={<Spinner/>}
     >
         <div className="container">
-        <h1 className="m-2">{this.props.countryName} {this.props.category==="general"?'Top Headlines':(this.capitalizeFirstLetter(this.props.category))+' news'}</h1>
+        <h1 id="top-heading" className="m-2">{this.props.countryName} {this.props.category==="general"?'Top Headlines':(this.capitalizeFirstLetter(this.props.category))+' news'}</h1>
+        {this.state.loading && <Spinner/>}
         <div className="row">
           {/*!this.state.loading &&*/ this.state.articles.map((element,index) => {
            //this.setState({stateIndex:index})
