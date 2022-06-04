@@ -9,6 +9,7 @@ export class Navbar extends Component {
       >
         <div className="container-fluid">
           <div className="navbar-brand">
+          <img src={this.props.mode==='dark'?'favicon-dark.jpg':'favicon-light.jpg'} className="mx-2" style={{height:'30px'}}/>
          NewsCub
           </div>
 
