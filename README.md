@@ -1,3 +1,13 @@
+This website is a news website where you can filter news according to your requirements. This website is inspired by Code with Harry's react tutorial news monkey website but it is having many additional features. Below i am listing all the additional features which were not there in the original News Monkey website.
+1. This website is having a uniform layout.
+2. Auto text wrapping if length of description increases a certain limit to maintain uniformity.
+3. Added dark mode option
+4. Fitler by country option.
+5. All your preferences gets saved in your device's local storage so that you don't have to set preferences again.
+6. Better design overall
+Note - In github commits and deployment status it's mentioned that the website was deployed but deployment of this website was not successfull because the free version of API which I am using works only on localhost.
+
+#React app description
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
