@@ -4,7 +4,8 @@ This website is a news website where you can filter news according to your requi
 3. Added dark mode option
 4. Fitler by country option.
 5. All your preferences gets saved in your device's local storage so that you don't have to set preferences again.
-6. Better design overall
+6. Better design overall.
+
 Note - In github commits and deployment status it's mentioned that the website was deployed but deployment of this website was not successfull because the free version of API which I am using works only on localhost.
 
 #React app description
